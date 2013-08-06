@@ -48,6 +48,9 @@ GEM
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     font-awesome-rails (3.2.1.1)
       railties (>= 3.2, < 5.0)
     haml (4.0.3)
@@ -173,6 +176,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
+  figaro
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
