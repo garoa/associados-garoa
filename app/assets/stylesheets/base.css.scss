@@ -1,3 +1,8 @@
 body {
   padding-top: 60px;
 }
+
+.navbar .brand {
+  background: url(image_path('ghc-small-umbrella.png')) 0 4px no-repeat;
+  padding-left: 48px;
+}
