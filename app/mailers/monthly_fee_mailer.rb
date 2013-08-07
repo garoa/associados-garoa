@@ -3,7 +3,7 @@ class MonthlyFeeMailer < ActionMailer::Base
 
   def remember_to_pay_email(user)
       @aka = user.aka
-      @current_month = Date.today.month.to_s
+      @current_month = I18n.l(Date.today, :format => :month)
       mail(to: user.email, subject: "Garoa Hacker Clube - Mensalidade do mês de #{@current_month}")
     end
 end

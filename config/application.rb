@@ -23,6 +23,16 @@ module AssociadosGaroa
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = 'pt-BR'
+
+    config.action_mailer.smtp_settings = {
+      :address   => "smtp.mandrillapp.com",
+      :port      => 25,
+      :enable_starttls_auto => true,
+      :user_name => 'tesoureiro@garoa.net.br',
+      :password  => ENV['MANDRILL_API_KEY'],
+      :authentication => 'login',
+      :domain => 'garoa.net.br'
+    }
   end
 end
