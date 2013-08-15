@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  scope :active, -> { where(active: true) }
+
   def aka
     nickname.present? ? nickname : name
   end
-
 
 end
