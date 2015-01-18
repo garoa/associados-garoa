@@ -34,7 +34,7 @@ pt-BR:
       default: ! '%d/%m/%Y'
       long: ! '%d de %B de %Y'
       short: ! '%d de %B'
-      month: ! '%B'
+      year_month: ! '%B de %Y'
     month_names:
     -
     - Janeiro
