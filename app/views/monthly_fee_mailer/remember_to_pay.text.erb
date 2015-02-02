@@ -1,8 +1,12 @@
-Saudações <%= @aka %>, associado do Garoa Hacker Clube,
+Saudações <%= @aka %>, associado(a) do Garoa Hacker Clube,
 
-Envio essa mensagem para lembrá-lo do pagamento da mensalidade deste mês (<%= @current_year_and_month %>) no valor de R$60 (sessenta reais) ou R$100 (cem reais).
+Envio essa mensagem para lembrá-lo(a) do pagamento da mensalidade deste mês (<%= @current_year_and_month %>) no valor de R$60 (sessenta reais) ou R$100 (cem reais).
 
-As anuidades são pagas exclusivamente durante o mês de fevereiro no valor de R$600 ou R$1000 (desconto de duas mensalidades).
+<% if @february %>
+Neste mês em especial é possível pagar uma anuidade de associado(a). Pagando a anuidade você ajuda a manter o caixa do Garoa para os meses seguintes. As anuidades tem o desconto de duas mensalidades. Os valores são R$600 ou R$1000.
+Se você pagou anuidade no ano anterior essa é a hora de renovar sua anuidade.
+Não será aceito o pagamento da anuidade com desconto após o encerramento do mês de fevereiro.
+<% end %>
 
 O pagamento deve ser feito via depósito bancário para a conta corrente do Garoa Hacker Clube:
 
@@ -15,13 +19,15 @@ Titular           Garoa Hacker Clube
 Após efetuar o pagamento envie um email com o comprovante para pagamentos@garoa.net.br indicando a data e o valor do pagamento.
 Seu email será respondido para confirmar o recebimento de seu pagamento.
 
+Por favor, tente identificar seu pagamento com suas iniciais ou adicione centavos ao final do pagamento para facilitar a verificação.
+
 Aqueles que não tem condições de pagar a mensalidade podem entrar em contato pelo mesmo email, informando tal fato.
 O programa “Starving hacker” permite que um associado do Garoa permaneça por até três meses sem pagamento de mensalidade.
 
 Os associados que ficarem por três meses ou mais sem o pagamento da mensalidade sem justificativa poderão perder o status de associado do Garoa, a ser votado em reunião do Conselho Manda Chuva.
 
-Se você já realizou o pagamento deste mês e enviou o comprovante, desconsidere a mensagem.
+Se já você já pagou a mensalidade deste mês e enviou o comprovante, desconsidere essa mensagem.
 
 Grato pela atenção,
 
-A tesouraria
+A tesouraria do Garoa Hacker Clube
