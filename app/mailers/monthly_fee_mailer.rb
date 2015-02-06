@@ -7,11 +7,11 @@ class MonthlyFeeMailer < ActionMailer::Base
           sender:      TREASURER_EMAIL
 
   def remember_to_pay(user)
-      @aka = user.aka
-      @current_year_and_month = I18n.l(Date.today, :format => :year_month)
-      @february = (Date.today.month == 2)
+    @aka = user.aka
+    @current_year_and_month = I18n.l(Date.today, :format => :year_month)
+    @february = (Date.today.month == 2)
 
-      mail(to: user.email,
-           subject: "Garoa Hacker Clube - Mensalidade do mês de #{@current_year_and_month}")
-    end
+    mail(to: user.email,
+         subject: "Garoa Hacker Clube - Mensalidade do mês de #{@current_year_and_month}")
+  end
 end
