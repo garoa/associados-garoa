@@ -14,4 +14,11 @@ class MonthlyFeeMailer < ActionMailer::Base
     mail(to: user.email,
          subject: "Garoa Hacker Clube - Mensalidade do mês de #{@current_year_and_month}")
   end
+
+  def remember_to_pay_delayed(user)
+    @aka = user.aka
+
+    mail(to: user.email,
+         subject: "Garoa Hacker Clube - Mensalidade em atraso")
+  end
 end
