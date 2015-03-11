@@ -5,4 +5,9 @@ namespace :email do
       MonthlyFeeMailer.remember_to_pay(user).deliver
     end
   end
+
+  desc 'Send and email to all active Garoa members that have overdue fees'
+  task :monthly_fee => :environment do
+    # IMPLEMENT
+  end
 end

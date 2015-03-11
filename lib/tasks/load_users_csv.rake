@@ -1,12 +1,13 @@
 require 'securerandom'
+require 'open-uri'
 
 namespace :db do
   desc "Load users basic data from a CSV file to the users table"
-  task :load_users_csv, [:filename] => [:environment] do |task, args|
-    filename = args[:filename] || 'garoa_hc_associados_dummy.csv'
+  task :load_users_csv => [:environment] do |task|
+    members_spreadsheet_url = "https://docs.google.com/spreadsheet/pub?key=#{ENV['MEMBERS_KEY']}&output=csv"
+    csv_file = open(members_spreadsheet_url)
     added_users = 0
-    CSV.foreach(Rails.root + "db/data/#{filename}", :headers => :first_row) do |row|
-
+    CSV.parse(csv_file, :headers => true) do |row|
       termination_date = row[4]
 
       user = User.create(name: row[1],
