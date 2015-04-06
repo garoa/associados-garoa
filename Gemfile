@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1'
 
-# Use mysql as the database for Active Record
-gem 'mysql2'
+# Use SQLITE as the database for Active Record
+gem 'sqlite3-ruby'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0'
@@ -37,7 +37,6 @@ end
 group :test do
   gem 'rspec-rails'
 end
-
 
 group :development do
   gem 'letter_opener'
