@@ -1,3 +1,4 @@
+
 require 'securerandom'
 require 'open-uri'
 
@@ -7,11 +8,12 @@ namespace :db do
     members_spreadsheet_url = "https://docs.google.com/spreadsheet/pub?key=#{ENV['MEMBERS_KEY']}&output=csv"
     csv_file = open(members_spreadsheet_url)
     added_users = 0
-    CSV.parse(csv_file, :headers => true) do |row|
+
+    CSV.parse(csv_file, headers: true) do |row|
       termination_date = row[4]
 
-      user = User.create(name: row[1],
-                         nickname: row[2],
+      user = User.create(name: row[1].to_s.force_encoding('iso-8859-1').encode('utf-8'),
+                         nickname: row[2].to_s.force_encoding('iso-8859-1').encode('utf-8'),
                          admission_date: row[3],
                          termination_date: termination_date,
                          telephone: row[5],
@@ -22,6 +24,7 @@ namespace :db do
 
       added_users += 1 if user.persisted?
     end
+
     puts "#{added_users} users were persisted."
     puts "There are #{User.count} users in the database."
   end
