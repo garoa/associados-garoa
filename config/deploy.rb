@@ -24,8 +24,8 @@ set :branch, 'master'
 set :shared_paths, ['config/database.yml', 'log', 'config/application.yml']
 
 # Optional settings:
-   set :user, ENV['SERVER_USER']    # Username in the server to SSH to.
-   set :port, ENV['SERVER_PORT']     # SSH port number.
+set :user, ENV['SERVER_USER']    # Username in the server to SSH to.
+set :port, ENV['SERVER_PORT']     # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
 
 # This task is the environment that is loaded for most commands, such as
