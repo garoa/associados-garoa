@@ -13,7 +13,7 @@ require 'mina/whenever'
 
 set :domain, ENV['SERVER_ADDRESS']
 set :deploy_to, '/var/www/associados-garoa'
-set :repository, 'git@github.com:ghc-hackerspace/associados-garoa.git'
+set :repository, 'git@github.com:garoa/associados-garoa.git'
 set :branch, 'master'
 
 # For system-wide RVM install.
