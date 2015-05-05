@@ -4,10 +4,29 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :membership_payment
+
+  delegate :overdue_monthly_memberships, to: :membership_payment
+
   scope :active, -> { where(active: true) }
+
+  # Get all users that need to receive the monthly membership email, ie:
+  # - Users that are active;
+  # - Users that did not pay for a yearly membership;
+  # - Users that are not starving hackers.
+
+  def self.need_to_receive_monthly_email
+    self.active
+        .joins(:membership_payment)
+        .merge(MembershipPayment.without_yearly_membership.not_starving)
+  end
 
   def aka
     nickname.present? ? nickname : name
+  end
+
+  def has_overdue_membership_payments?
+    overdue_monthly_memberships > 0
   end
 
 end

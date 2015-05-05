@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130806174634) do
+ActiveRecord::Schema.define(version: 20150504205159) do
+
+  create_table "membership_payments", force: true do |t|
+    t.integer  "overdue_monthly_memberships", default: 0
+    t.integer  "starving_months",             default: 0
+    t.boolean  "yearly_membership",           default: false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
@@ -24,7 +33,7 @@ ActiveRecord::Schema.define(version: 20130806174634) do
     t.datetime "updated_at"
   end
 
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
 
   create_table "users", force: true do |t|
     t.string   "email",                              default: "", null: false
@@ -47,7 +56,7 @@ ActiveRecord::Schema.define(version: 20130806174634) do
     t.date     "termination_date"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

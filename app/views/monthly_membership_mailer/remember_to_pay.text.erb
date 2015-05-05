@@ -1,10 +1,12 @@
 Saudações <%= @aka %>, associado(a) do Garoa Hacker Clube,
 
 Envio essa mensagem para lembrá-lo(a) do pagamento da mensalidade deste mês (<%= @current_year_and_month %>) no valor de R$70 (setenta reais) ou R$110 (cento e dez reais).
+<% if @user_has_overdue_membership_payments %>
 
-Se você já realizou o pagamento com os valores anteriores ao reajuste que ocorreu em Fevereiro de 2015, poderá efetuar o pagamento da diferença com a mensalidade próximo mês.
-
+Além disso, de acordo com nosso controle de pagamentos consta que você está com <%= @overdue_payments %> em atraso.
+<% end %>
 <% if @february %>
+
 Neste mês em especial é possível pagar uma anuidade de associado(a). Pagando a anuidade você ajuda a manter o caixa do Garoa para os meses seguintes. As anuidades tem o desconto de duas mensalidades. Os valores são R$700 ou R$1100.
 Se você pagou anuidade no ano anterior essa é a hora de renovar sua anuidade.
 Não será aceito o pagamento da anuidade com desconto após o encerramento do mês de fevereiro.
@@ -18,8 +20,8 @@ Conta             01777-7
 CNPJ              14124685000192
 Titular           Garoa Hacker Clube
 
-Aceitamos também pagamento  usando o Pagseguro. Acesse o seguinte link no nosso wiki e seleciona a opção
-assinar com Pagseguro (há dois valores possíveis de mensalidade):
+Aceitamos também pagamento  usando o Pagseguro. Acesse o seguinte link no nosso wiki
+e seleciona a opção assinar com Pagseguro (há dois valores possíveis de mensalidade):
 https://garoa.net.br/wiki/Pagamentos
 
 Para realizar a assinatura é necessário usar um cartão de crédito. A assinatura deve ser renovada anualmente.
@@ -35,7 +37,7 @@ Mensalidades em atraso terão multa de 6% e juros de 2% ao mês.
 
 Os associados que ficarem por três meses ou mais sem o pagamento da mensalidade sem justificativa poderão perder o status de associado do Garoa, a ser votado em reunião do Conselho Manda Chuva.
 
-Se já você já pagou a mensalidade deste mês e enviou o comprovante, desconsidere essa mensagem.
+Se você já pagou a mensalidade deste mês e enviou o comprovante, desconsidere essa mensagem.
 
 Grato pela atenção,
 

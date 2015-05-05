@@ -4,8 +4,8 @@ require 'securerandom'
 require 'open-uri'
 
 namespace :db do
-  desc "Load/update users basic data from a CSV file to the users table"
-  task :load_users_csv => [:environment] do |task|
+  desc "Update users table using the Members Spreadsheet"
+  task :update_users => [:environment] do |task|
     members_spreadsheet_url = "https://docs.google.com/spreadsheet/pub?key=#{ENV['MEMBERS_KEY']}&output=csv"
     csv_file = open(members_spreadsheet_url)
     added_users = 0

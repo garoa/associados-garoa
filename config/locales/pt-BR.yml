@@ -1,4 +1,7 @@
 pt-BR:
+  monthly_payment:
+    one: 'uma mensalidade'
+    other: '%{count} mensalidades'
   date:
     abbr_day_names:
     - Dom
