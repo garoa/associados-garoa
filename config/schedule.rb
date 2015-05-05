@@ -22,6 +22,6 @@
 set :output, { error: 'error.log', standard: 'cron.log' }
 
 every :month, at: 'start of the month at 9:00am' do
-  rake "email:monthly_fee"
+  rake "email:monthly_membership"
 end
 
