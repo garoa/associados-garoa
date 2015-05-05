@@ -1,4 +1,4 @@
-class CreateMembershipPayment < ActiveRecord::Migration
+class CreateMembershipPayments < ActiveRecord::Migration
   def change
     create_table :membership_payments do |t|
 
