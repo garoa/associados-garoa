@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def has_overdue_membership_payments?
-    overdue_monthly_memberships > 0
+    overdue_monthly_memberships.to_i > 0
   end
 
 end
