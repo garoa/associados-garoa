@@ -12,7 +12,7 @@ class MonthlyMembershipMailer < ActionMailer::Base
     @february = (Date.today.month == 2)
     @user_has_overdue_membership_payments = user.has_overdue_membership_payments?
 
-    @overdue_payments = I18n.translate(:monthly_payment, count: user.overdue_monthly_memberships)
+    @overdue_payments = I18n.translate(:monthly_payment, count: user.overdue_monthly_memberships.to_i)
 
     simple_subject = "Garoa Hacker Clube - Mensalidade do mês de #{@current_year_and_month}"
     overdue_payments = " e #{@overdue_payments} em atraso"
