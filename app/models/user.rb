@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_one :membership_payment
 
-  delegate :overdue_monthly_memberships, to: :membership_payment
+  delegate :overdue_monthly_memberships, to: :membership_payment, allow_nil: true
 
   scope :active, -> { where(active: true) }
 
