@@ -13,20 +13,21 @@ namespace :db do
     CSV.parse(csv_file, headers: true, encoding: "UTF-8") do |row|
       termination_date = row[4]
 
-      user = User.create(name: row[1].to_s.force_encoding("UTF-8").encode('UTF-8', undef: :replace, replace: ''),
-                         nickname: row[2].to_s.force_encoding("UTF-8").encode('UTF-8', undef: :replace, replace: ''),
-                         admission_date: row[3],
-                         termination_date: termination_date,
-                         telephone: row[5],
-                         email: row[6],
-                         password: SecureRandom.hex(32),
-                         active: termination_date.blank?
-                         )
+      puts " #{row[6]} - #{termination_date} #{termination_date.blank?}"
 
-      added_users += 1 if user.persisted?
+      User.find_or_create_by(email: row[6])
+          .update(name: row[1].to_s.force_encoding("UTF-8").encode('UTF-8', undef: :replace, replace: ''),
+           nickname: row[2].to_s.force_encoding("UTF-8").encode('UTF-8', undef: :replace, replace: ''),
+           admission_date: row[3],
+           termination_date: termination_date,
+           telephone: row[5],
+           email: row[6],
+           password: SecureRandom.hex(32),
+           active: termination_date.blank?
+           )
     end
-
-    puts "#{added_users} users were persisted."
     puts "There are #{User.count} users in the database."
+    puts "There are #{User.active.count} active members."
+
   end
 end
