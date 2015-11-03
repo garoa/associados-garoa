@@ -10,10 +10,10 @@ class User < ActiveRecord::Base
 
   scope :active, -> { where(active: true) }
 
-  # Get all users that need to receive the monthly membership email, ie:
+  # Get all users that need to receive the monthly membership email, i.e.:
   # - Users that are active;
   # - Users that did not pay for a yearly membership;
-  # - Users that are not starving hackers.
+  # - Users that are not in the 'starving hackers' program.
 
   def self.need_to_receive_monthly_email
     self.active
