@@ -21,7 +21,7 @@ namespace :db do
                 starving_months: row['Starving'].to_i
                 )
         rescue ActiveRecord::RecordNotFound
-          puts "User with email '#{user_email}' not found"
+          puts "User with email '#{user_email}' not found, plase fix the email in the spreadsheet"
         end
       end
 
