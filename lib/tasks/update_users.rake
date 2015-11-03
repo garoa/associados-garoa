@@ -13,8 +13,6 @@ namespace :db do
     CSV.parse(csv_file, headers: true, encoding: "UTF-8") do |row|
       termination_date = row[4]
 
-      puts " #{row[6]} - #{termination_date} #{termination_date.blank?}"
-
       User.find_or_create_by(email: row[6])
           .update(name: row[1].to_s.force_encoding("UTF-8").encode('UTF-8', undef: :replace, replace: ''),
            nickname: row[2].to_s.force_encoding("UTF-8").encode('UTF-8', undef: :replace, replace: ''),
