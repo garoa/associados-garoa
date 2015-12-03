@@ -23,7 +23,7 @@ env :PATH, ENV['PATH']
 
 set :output, { error: 'tmp/error.log', standard: 'tmp/cron.log' }
 
-every :month, at: 'start of the month at 12:00am' do
+every :month, at: 'start of the month at 7:00pm' do
   rake "email:monthly_membership"
 end
 
