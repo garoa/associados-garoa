@@ -12,7 +12,7 @@ namespace :db do
 
     CSV.parse(csv_file, headers: true, encoding: "UTF-8") do |row|
       termination_date = row[4]
-      email_without_spaces = row[4].to_s.strip
+      email_without_spaces = row[6].to_s.strip
 
       User.find_or_create_by(email: email_without_spaces)
           .update(name: row[1].to_s.force_encoding("UTF-8").encode('UTF-8', undef: :replace, replace: ''),
