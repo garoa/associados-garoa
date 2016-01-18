@@ -4,11 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :membership_payment
+  has_one :membership_payment, dependent: :destroy
 
   delegate :overdue_monthly_memberships, to: :membership_payment, allow_nil: true
 
   scope :active, -> { where(active: true) }
+
+  scope :inactive, -> { where(active: false) }
 
   # Get all users that need to receive the monthly membership email, i.e.:
   # - Users that are active;

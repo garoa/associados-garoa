@@ -1,7 +1,7 @@
 # RailsAdmin config file. Generated on June 28, 2013 17:16
 # See github.com/sferik/rails_admin for more informations
 require 'i18n'
-# I18n.default_locale = :'pt-br'
+I18n.default_locale = 'pt-BR'
 
 RailsAdmin.config do |config|
 
@@ -9,7 +9,7 @@ RailsAdmin.config do |config|
   ################  Global configuration  ################
 
   # Set the admin name here (optional second array element will appear in red). For example:
-  config.main_app_name = ['Associados Garoa', 'Admin']
+  config.main_app_name = ['Associados Garoa', 'Painel de controle']
   # or for a more dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
@@ -37,6 +37,7 @@ RailsAdmin.config do |config|
   # Label methods for model instances:
   # config.label_methods << :description # Default is [:name, :title]
 
+  config.default_items_per_page = 100
 
   ################  Model configuration  ################
 
@@ -48,9 +49,28 @@ RailsAdmin.config do |config|
   #   - This initializer is loaded once at startup (modifications will show up when restarting the application) but all RailsAdmin configuration would stay in one place.
   #   - Models are reloaded at each request in development mode (when modified), which may smooth your RailsAdmin development workflow.
 
-
   # Now you probably need to tour the wiki a bit: https://github.com/sferik/rails_admin/wiki
   # Anyway, here is how RailsAdmin saw your application's models when you ran the initializer:
 
+  config.model User do
+    list do
+      scopes [:active, :inactive]
+      sort_by :name
+      field :name
+      field :email
+      field :admission_date
+    end
+  end
+
+  config.model MembershipPayment do
+    list do
+      sort_by :overdue_monthly_memberships
+      scopes [:overdue_memberships]
+      field :user
+      field :overdue_monthly_memberships do
+        sort_reverse true
+      end
+    end
+  end
 
 end

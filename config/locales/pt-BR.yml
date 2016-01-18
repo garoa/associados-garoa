@@ -211,5 +211,14 @@ pt-BR:
     errors:
       <<: *errors
   activerecord:
-    errors:
-      <<: *errors
+    models:
+      membership_payment: 'Mensalidades'
+      user:
+        one: 'Associado'
+        other: 'Associados'
+      attributes:
+        user:
+          nickname: 'apelido'
+          admission_date: 'início da associação'
+          termination_date: 'término da associação'
+
