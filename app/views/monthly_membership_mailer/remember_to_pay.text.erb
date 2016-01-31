@@ -1,12 +1,11 @@
 Saudações <%= @aka %>, associado(a) do Garoa Hacker Clube,
 
-Envio essa mensagem para lembrá-lo(a) do pagamento da mensalidade deste mês (<%= @current_year_and_month %>) no valor de R$70 (setenta reais) ou R$110 (cento e dez reais).
+Envio essa mensagem para lembrá-lo(a) do pagamento da mensalidade deste mês (<%= @current_year_and_month %>) no valor de R$70 (setenta reais) ou R$110 (cento e dez reais). Se você já pagou a mensalidade deste mês e já enviou o comprovante, desconsidere essa mensagem.
 <% if @user_has_overdue_membership_payments %>
 
 Além disso, de acordo com nosso controle de pagamentos consta que você está com <%= @overdue_payments %> em atraso.
 
 Se acredita que essa informação está incorreta, entre em contato com pagamentos@garoa.net.br para confirmar seus pagamentos de meses anteriores.
-
 <% end %>
 <% if @february %>
 
@@ -16,7 +15,7 @@ Se você pagou anuidade no ano anterior essa é a hora de renovar sua anuidade.
 Não será aceito o pagamento da anuidade com desconto após o encerramento do mês de fevereiro.
 <% end %>
 
-O pagamento deverá ser feito por depósito bancário para a conta corrente do Garoa Hacker Clube:
+O pagamento deve ser feito por depósito bancário para a conta corrente do Garoa Hacker Clube:
 
 Banco             341 (Itaú)
 Agência           0609-2
@@ -24,9 +23,7 @@ Conta             01777-7
 CNPJ              14124685000192
 Titular           Garoa Hacker Clube
 
-Para pagamentos não identificados na nossa conta corrente é necessário enviar um email com o comprovante para pagamentos@garoa.net.br indicando a data e o valor enviado. Por favor, tente identificar o pagamento com as iniciais do seu nome ou adicione centavos ao final do pagamento para facilitar a verificação.
-
-Seu email será respondido para confirmar o recebimento.
+Para pagamentos não identificados na nossa conta corrente é necessário enviar um email com o comprovante para pagamentos@garoa.net.br indicando a data e o valor enviado. Pgitor favor, tente identificar o pagamento com as iniciais do seu nome ou adicione centavos ao final do pagamento para facilitar a verificação. Seu email será respondido para confirmar o recebimento.
 
 Aqueles que não tem condições de pagar a mensalidade podem entrar em contato pelo mesmo email, informando tal fato.
 O programa “Starving hacker” permite que um associado do Garoa permaneça por até três meses sem pagamento de mensalidade.
@@ -35,7 +32,8 @@ Mensalidades em atraso terão multa de 6% e juros de 2% ao mês. O cálculo da m
 
 Os associados que ficarem por três meses ou mais sem o pagamento da mensalidade sem justificativa poderão perder o status de associado do Garoa, a ser votado em reunião do Conselho Manda Chuva.
 
-Se você já pagou a mensalidade deste mês e enviou o comprovante, desconsidere essa mensagem.
+Por fim, você pode acompanhar as contas do do Garoa pela planilha está disponível em http://bit.ly/contasGHC2016
+Na planilha há informações sobre despesas fixas do Garoa e arrecadação com mensalidade e outras doações.
 
 Grato pela atenção,
 
