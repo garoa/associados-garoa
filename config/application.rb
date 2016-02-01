@@ -27,6 +27,8 @@ module AssociadosGaroa
     config.i18n.available_locales = ["pt-BR"]
     config.i18n.default_locale = :'pt-BR'
 
+    config.time_zone = 'Brasilia'
+
     config.action_mailer.smtp_settings = {
       :address   => "smtp.mandrillapp.com",
       :port      => 587,
