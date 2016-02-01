@@ -222,6 +222,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chronic
   coffee-rails
   devise (~> 3.4.0)
   figaro

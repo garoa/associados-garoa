@@ -28,6 +28,10 @@ gem 'turbolinks', '~> 2.3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Parse dates
+gem 'chronic'
+
+# Generate a cronfile for scheduling email and other tasks
 gem 'whenever', :require => false
 
 group :doc do
