@@ -30,11 +30,11 @@ module AssociadosGaroa
     config.time_zone = 'Brasilia'
 
     config.action_mailer.smtp_settings = {
-      :address   => "smtp.mandrillapp.com",
+      :address   => "smtp-relay.sendinblue.com",
       :port      => 587,
       :enable_starttls_auto => true,
       :user_name => 'tesoureiro@garoa.net.br',
-      :password  => ENV['MANDRILL_API_KEY'],
+      :password  => ENV['SENDINBLUE_PASSWORD'],
       :authentication => 'login',
       :domain => 'garoa.net.br'
     }
