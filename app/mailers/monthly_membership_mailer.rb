@@ -21,4 +21,16 @@ class MonthlyMembershipMailer < ActionMailer::Base
     mail(to: user.email,
          subject: email_subject)
   end
+
+  def users_with_overdue_membership
+    associados_mailing_list = "associados-garoa@googlegroups.com"
+
+    subject = "Garoa Hacker Clube - Associados com mensalidade em atraso"
+
+    @users_with_overdue_payments = OverduePaymentsBuilder.new.build_users_list
+
+    mail(to: associados_mailing_list,
+         subject: subject)
+  end
+
 end

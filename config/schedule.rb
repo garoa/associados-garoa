@@ -19,6 +19,15 @@
 
 # Learn more: http://github.com/javan/whenever
 
+# *     *     *   *    *        command to be executed
+# -     -     -   -    -
+# |     |     |   |    |
+# |     |     |   |    +----- day of week (0 - 6) (Sunday=0)
+# |     |     |   +------- month (1 - 12)
+# |     |     +--------- day of month (1 - 31)
+# |     +----------- hour (0 - 23)
+# +------------- min (0 - 59)
+
 env :PATH, ENV['PATH']
 
 set :output, { error: 'tmp/error.log', standard: 'tmp/cron.log' }
@@ -33,4 +42,13 @@ end
 
 every :month, at: 'start of the month at 7:00pm' do
   rake "email:monthly_membership"
+end
+
+every '0 2 14 * *' do
+  rake "db:update_membership_payments"
+end
+
+# Send email every 15th day of the month at 2 oclock
+every '0 2 15 * *' do
+  rake "email:overdue_memberships"
 end

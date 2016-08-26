@@ -6,6 +6,8 @@ require 'chronic'
 namespace :db do
   desc "Update membership payments table using CSV (Google Spreadsheet)"
   task :update_membership_payments => [:environment] do |task|
+    # TO DO: Move this code outside the rake to test it
+
     members_spreadsheet_url = "https://docs.google.com/spreadsheets/d/#{ENV['PAYMENTS_KEY']}&single=true&output=csv"
 
     csv_file = open(members_spreadsheet_url)

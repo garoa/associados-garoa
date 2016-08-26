@@ -12,6 +12,13 @@ class User < ActiveRecord::Base
 
   scope :inactive, -> { where(active: false) }
 
+  def self.with_overdue_monthly_memberships(overdue_memberships = 0)
+    active.
+    joins(:membership_payment)
+    .merge(MembershipPayment.without_yearly_membership.not_starving
+    .where('overdue_monthly_memberships > ?', overdue_memberships))
+  end
+
   # Get all users that need to receive the monthly membership email, i.e.:
   # - Users that are active;
   # - Users that did not pay for a yearly membership;
