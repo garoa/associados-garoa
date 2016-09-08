@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
     joins(:membership_payment)
     .merge(MembershipPayment.without_yearly_membership.not_starving
     .where('overdue_monthly_memberships > ?', overdue_memberships))
+    .order('membership_payments.overdue_monthly_memberships DESC')
   end
 
   # Get all users that need to receive the monthly membership email, i.e.:
