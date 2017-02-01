@@ -8,7 +8,7 @@ namespace :db do
   task :update_membership_payments => [:environment] do |task|
     # TO DO: Move this code outside the rake to test it
 
-    members_spreadsheet_url = "https://docs.google.com/spreadsheets/d/#{ENV['PAYMENTS_KEY']}&single=true&output=csv"
+    members_spreadsheet_url = "https://docs.google.com/spreadsheets/d/#{ENV.fetch('PAYMENTS_KEY')}&single=true&output=csv"
 
     csv_file = open(members_spreadsheet_url)
 
@@ -28,7 +28,8 @@ namespace :db do
       end
 
       # Check if user has paid the yearly membership and if this membership has expired
-      has_paid_yearly_membership = row["Anuidade"].present? && membership_date && (membership_date > Date.today)
+      has_paid_yearly_membership = row["Anuidade"].present? && membership_date && (membership_date > Date.today.middle_of_day)
+
 
       if user_email.present?
         begin
