@@ -9,7 +9,7 @@ class MonthlyMembershipMailer < ActionMailer::Base
   def remember_to_pay(user)
     @aka = user.aka
     @current_year_and_month = I18n.l(Date.today, :format => :year_month)
-    @february = (Date.today.month == 2)
+    @february = user.yearly_membership_month?
     @user_has_overdue_membership_payments = user.has_overdue_membership_payments?
 
     @overdue_payments = I18n.translate(:monthly_payment, count: user.overdue_monthly_memberships.to_i)
@@ -23,13 +23,13 @@ class MonthlyMembershipMailer < ActionMailer::Base
   end
 
   def users_with_overdue_membership
-    associados_mailing_list = "associados-garoa@googlegroups.com"
 
     subject = "Garoa Hacker Clube - Associados com mensalidade em atraso"
 
     @users_with_overdue_payments = OverduePaymentsBuilder.new.build_users_list
 
-    mail(to: associados_mailing_list,
+    mail(to: 'associados-garoa@googlegroups.com',
+         cc: 'cs@garoa.net.br',
          subject: subject)
   end
 

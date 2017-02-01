@@ -48,7 +48,7 @@ every '0 2 14 * *' do
   rake "db:update_membership_payments"
 end
 
-# Send email every 15th day of the month at 2 oclock
+# Send email every 15th day of the month at 2 o clock
 every '0 2 15 * *' do
   rake "email:overdue_memberships"
 end

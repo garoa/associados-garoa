@@ -24,11 +24,18 @@ class User < ActiveRecord::Base
   # - Users that are active;
   # - Users that did not pay for a yearly membership;
   # - Users that are not in the 'starving hackers' program.
+  # - In the the month in which yearly memberships are paid, all user must
+  #  receive the email.
 
   def self.need_to_receive_monthly_email
-    self.active
-        .joins(:membership_payment)
-        .merge(MembershipPayment.without_yearly_membership.not_starving)
+    if yearly_membership_month?
+      self.active
+          .joins(:membership_payment)
+    else
+      self.active
+          .joins(:membership_payment)
+          .merge(MembershipPayment.without_yearly_membership.not_starving)
+    end
   end
 
   def aka
@@ -37,6 +44,10 @@ class User < ActiveRecord::Base
 
   def has_overdue_membership_payments?
     overdue_monthly_memberships.to_i > 0
+  end
+
+  def yearly_membership_month?
+    Date.today.month == yearly_membership_month
   end
 
 end
