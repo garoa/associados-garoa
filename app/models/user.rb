@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
   # - In the the month in which yearly memberships are paid, all user must
   #  receive the email.
 
+  def self.yearly_membership_month?
+    Date.today.month == yearly_membership_month
+  end
+
   def self.need_to_receive_monthly_email
     if yearly_membership_month?
       self.active
@@ -44,10 +48,6 @@ class User < ActiveRecord::Base
 
   def has_overdue_membership_payments?
     overdue_monthly_memberships.to_i > 0
-  end
-
-  def yearly_membership_month?
-    Date.today.month == yearly_membership_month
   end
 
 end
