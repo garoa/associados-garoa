@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  YEARLY_MEMBERSHIP_MONTH = 2
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -27,12 +30,9 @@ class User < ActiveRecord::Base
   # - In the the month in which yearly memberships are paid, all user must
   #  receive the email.
 
-  def self.yearly_membership_month?
-    Date.today.month == yearly_membership_month
-  end
 
   def self.need_to_receive_monthly_email
-    if yearly_membership_month?
+    if Date.today.month == YEARLY_MEMBERSHIP_MONTH
       self.active
           .joins(:membership_payment)
     else
