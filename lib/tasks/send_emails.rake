@@ -8,7 +8,7 @@ namespace :email do
 
   desc 'Send an email to googlegroups with a list with all members with overdue membership payments'
   task :overdue_memberships => :environment do
-    MonthlyMembershipMailer.users_with_overdue_membership
+    MonthlyMembershipMailer.users_with_overdue_membership.deliver
   end
 
 end
