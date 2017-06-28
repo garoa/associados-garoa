@@ -1,6 +1,10 @@
-Saudações <%= @aka %>, associado(a) do Garoa Hacker Clube,
+Saudações <%= @aka %>, pessoa sócia do Garoa Hacker Clube,
 
-Envio essa mensagem para lembrá-lo(a) do pagamento da mensalidade deste mês (<%= @current_year_and_month %>) no valor de R$85 (oitenta e cinco reais) ou R$130 (cento e trinta reais). Se você já pagou a mensalidade deste mês e já enviou o comprovante, desconsidere essa mensagem.
+Estamos desenvolvendo um novo sistema para o controle de mensalidades.
+Acesse e crie sua conta agora:
+https://sistema-tesouraria.herokuapp.com/
+
+Envio essa mensagem para lhe lembrar do pagamento da mensalidade deste mês (<%= @current_year_and_month %>) no valor de R$85 (oitenta e cinco reais) ou R$130 (cento e trinta reais). Se você já pagou a mensalidade deste mês e já enviou o comprovante, desconsidere essa mensagem.
 <% if @user_has_overdue_membership_payments %>
 
 Além disso, de acordo com nosso controle de pagamentos consta que você está com <%= @overdue_payments %> em atraso.
@@ -8,6 +12,7 @@ Além disso, de acordo com nosso controle de pagamentos consta que você está c
 Se acredita que essa informação está incorreta, entre em contato com pagamentos@garoa.net.br para confirmar seus pagamentos de meses anteriores.
 <% end %>
 <% if @february %>
+
 
 Neste mês em especial é possível pagar uma anuidade de associado(a). Pagando a anuidade você ajuda a manter o caixa do Garoa para os meses seguintes. As anuidades tem o desconto de duas mensalidades. Os valores são de R$700 ou de R$1100.
 
@@ -23,8 +28,9 @@ Conta             01777-7
 CNPJ              14124685000192
 Titular           Garoa Hacker Clube
 
-É possível também realizar o pagamento por Paypal. Faça uma doação recorrente (a partir de 70 reais), através do seguinte link:
+É possível também realizar o pagamento por Paypal. Faça uma doação recorrente (a partir de 85 reais), através do seguinte link:
 https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HGTMYD9HW7YWW
+Se a sua assinatura de paypal
 
 Para pagamentos não identificados na nossa conta corrente é necessário enviar um email com o comprovante para pagamentos@garoa.net.br indicando a data e o valor enviado.
 
